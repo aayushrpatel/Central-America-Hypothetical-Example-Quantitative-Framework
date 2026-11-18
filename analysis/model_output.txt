@@ -1,0 +1,88 @@
+====================================================================================
+STEP 1  FREIGHT (base case: modern 174k m3 two-stroke, 17 kn, mid-cycle charter)
+====================================================================================
+  Speed: 17 kn x 24 h                                                   408 nm/day
+  Cargo loaded: 174,000 m3 x 98.5% x 0.45 t/m3 x 52 MMBtu/t            4.01 m MMBtu
+  Cargo delivered (after boil-off/heel)                                3.90 m MMBtu
+  Fuel: 0.08%/day x 4.01m MMBtu x $10                               $32,084 /day
+  Charter (mid-cycle)                                               $75,000 /day
+  All-in daily cost                                                $107,084 /day
+  Cost of one extra voyage day per MMBtu = daily / 3.9m             $0.0275 /MMBtu/day
+
+  Route (round trip)     one-way nm    days  time+fuel $m  port+toll $m   $/MMBtu
+  Asia via Cape              15,689    78.9          8.45          0.20      2.22
+  Asia via Panama             9,214    51.2          5.48          1.41      1.77
+  Asia via strait             9,214    47.2          5.05          0.20      1.35
+  NW Europe                   4,900    26.0          2.79          0.20      0.77
+
+  Panama tolls: laden $300k + $2.05 x 174k m3                      $656,700 
+              + ballast at 85% of laden                            $558,195 
+              = round-trip toll / 3.9m MMBtu                          $0.31 /MMBtu
+  Voyage time saved one-way, Cape -> strait                            15.9 days
+    one-way voyage: Cape -> strait                               38.5 -> 22.6 days
+  Freight saving vs Cape (today's route)                              $0.87 /MMBtu
+  Freight saving vs a working Panama (tolls + 4 days)                 $0.42 /MMBtu
+  Panama queue (days) at which Panama costs as much as the Cape          18 days
+
+====================================================================================
+STEP 2  ARBITRAGE THRESHOLD  (US cargo -> Asia only if JKM - TTF > F_Asia - F_Europe)
+====================================================================================
+  Old threshold (via Cape):   F_Cape - F_Europe                       $1.45 /MMBtu
+  Panama threshold (if usable): F_Panama - F_Europe                   $1.00 /MMBtu
+  New threshold (via strait): F_strait - F_Europe                     $0.58 /MMBtu
+  Threshold falls by (= freight saving, dF)                           $0.87 /MMBtu
+
+====================================================================================
+STEP 3  DOES THE LOWER THRESHOLD BIND?  compression = clip(spread - new threshold, 0, dF)
+====================================================================================
+  Year       JKM     TTF   JKM-TTF  > new thr?  compression
+  2019      5.49    4.50     +0.99         yes         0.41
+  2020      4.39    3.15     +1.24         yes         0.66
+  2021     18.60   15.80     +2.80         yes         0.87
+  2022     33.98   37.10     -3.12          no         0.00
+  2023     13.78   12.80     +0.98         yes         0.40
+  2024     11.91   10.90     +1.01         yes         0.43
+  2025     12.26   11.90     +0.36          no         0.00
+  Average JKM-TTF 2019-25                                            $+0.61 /MMBtu
+  Years the new threshold binds                                      5 of 7 
+  Average spread compression 2019-25                                  $0.40 /MMBtu
+  Max compression in a tight-Asia year (= dF)                         $0.87 /MMBtu
+
+  Sensitivity to charter rate (freight level):
+  case                     charter  old thr  new thr     dF  avg comp  binds
+  low (2025 spot)           25,000     0.77     0.31   0.46      0.34    6/7
+  base (mid-cycle)          75,000     1.45     0.58   0.87      0.40    5/7
+  high (tight market)      150,000     2.47     0.99   1.48      0.25    4/7
+
+====================================================================================
+STEP 4  PRICE SPLIT  (supply fixed -> volume-weighted LNG price unchanged)
+====================================================================================
+  Asia share of Asia+Europe LNG imports: 271 / 397                      68% 
+  TTF change  = +C x Asia share                                      +$0.27 /MMBtu (avg)
+  JKM change  = -C x Europe share                                    -$0.13 /MMBtu (avg)
+    tight-Asia year (C = dF): TTF                                    +$0.59 /MMBtu
+    tight-Asia year (C = dF): JKM                                    -$0.28 /MMBtu
+  As % of 2023-25 avg price (~$12.1): TTF / JKM                  +2.2% / -1.0% 
+  US FOB netback change (= TTF change, Europe is US's marginal outlet)     +$0.27 /MMBtu
+
+====================================================================================
+STEP 5  VOLUMES & MIX
+====================================================================================
+  US utilisation 2025: 15.1 / 15.4 Bcf/d                                98% 
+  => short-run change in total US export volume                          ~0 (capacity-bound)
+  Demand response: Asia k_A = 7 x 68%                                   4.8 Mt per $1
+  Demand response: Europe k_E = 7 x 32%                                 2.2 Mt per $1
+  Mt moved Europe->Asia per $1 of compression = kA*kE/(kA+kE)          1.52 Mt
+  Volume shifted to Asia, average year (C avg)                          0.6 Mt (~8 cargoes)
+  Volume shifted to Asia, tight-Asia year (C = dF)                      1.3 Mt (~17 cargoes)
+    as share of 2025 US exports (111 Mt)                         0.5% - 1.2% 
+    if long-run demand response were 3x larger                    1.8 - 4.0 Mt
+
+  Cargo size: 171,390 m3 x 0.45 t                                      77.1 kt
+  US->Asia cargoes via Cape (2024): 31.6 Mt x 94% / 0.0771              385 cargoes/yr
+  Round-trip days saved per cargo                                      31.7 days
+  Ship-years freed = cargoes x days / 365                                33 ships (4.2% of 804-ship fleet)
+  Annual freight bill saved = cargoes x days x daily cost             $1.31 bn/yr
+
+  US FOB cost: 1.15 x $3.52 HH + $2.80 fee                            $6.85 /MMBtu
+  US delivered cost to Japan: via Cape -> via strait             $9.07 -> $8.19 (-10%)
